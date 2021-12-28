@@ -1,6 +1,6 @@
 {
   "name": "dashboard-v7-nextjs",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "Enoch Ndika",
   "repository": {
@@ -22,8 +22,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "prepare": "husky install"
+    "lint": "next lint && eslint '*/**/*.{js,jsx}' --fix",
+    "prepare": "husky install",
+    "format": "prettier '*/**/*.{js,jsx}' --write"
   },
   "dependencies": {
     "@reach/portal": "^0.16.0",
@@ -45,8 +46,8 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "eslint '*/**/*.{js,jsx}' --fix",
-      "prettier '*/**/*.{js,jsx}' --write"
+      "yarn lint",
+      "yarn format"
     ]
   }
 }
